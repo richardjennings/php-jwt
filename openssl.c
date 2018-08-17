@@ -38,7 +38,7 @@
 /* Functions to make libjwt backward compatible with OpenSSL version < 1.1.0
  * See https://wiki.openssl.org/index.php/1.1_API_Changes
  */
-#if OPENSSL_VERSION_NUMBER < 0x10100000L
+#if OPENSSL_VERSION_NUMBER < 0x10100000L || defined(LIBRESSL_VERSION_NUMBER)
 
 static void ECDSA_SIG_get0(const ECDSA_SIG *sig, const BIGNUM **pr, const BIGNUM **ps)
 {
